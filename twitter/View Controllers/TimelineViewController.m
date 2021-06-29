@@ -24,15 +24,19 @@
 @implementation TimelineViewController
 
 - (void)viewDidLoad {
+   
     [super viewDidLoad];
     
-    self.tableView.rowHeight = UITableViewAutomaticDimension;
-    
+
+     
     
     //table view delegate
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     
+    
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = UITableViewAutomaticDimension;
     
     // Get timeline
     [[APIManager shared] getHomeTimelineWithCompletion:^(NSArray *tweets, NSError *error) {
@@ -67,8 +71,11 @@
 
 
 
-
-
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 148;
+}
+ 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.arrayOfTweets.count;

@@ -90,12 +90,16 @@
     cell.dateLabel.text = self.tweet.createdAtString;
     cell.tweetTextLabel.text = self.tweet.text;
     
-    [cell.retweetButton setTitle:self.tweet.retweetCount forState:UIControlStateNormal];
-    
-    [cell.favoriteButton setTitle:self.tweet.favoriteCount forState:UIControlStateNormal];
-    
 
     
+    NSString *retweetCount = [NSString stringWithFormat:@"%d", self.tweet.retweetCount];
+    
+    NSString *favoriteCount = [NSString stringWithFormat:@"%d", self.tweet.favoriteCount];
+    [cell.retweetButton setTitle:retweetCount forState:UIControlStateNormal];
+    
+    [cell.favoriteButton setTitle:favoriteCount forState:UIControlStateNormal];
+
+
     
     
     //poster view

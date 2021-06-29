@@ -39,12 +39,12 @@
         if (tweets) {
             // inside your loadTweets() function
             self.arrayOfTweets = tweets;
-            
+            [self.tableView reloadData]; 
             NSLog(@"😎😎😎 Successfully loaded home timeline");
-            for (NSDictionary *dictionary in tweets) {
-                NSString *text = dictionary[@"text"];
-                NSLog(@"%@", text);
-            }
+//            for (NSDictionary *dictionary in tweets) {
+//                NSString *text = dictionary[@"text"];
+//                NSLog(@"%@", text);
+//            }
          
         } else {
             NSLog(@"😫😫😫 Error getting home timeline: %@", error.localizedDescription);
@@ -71,13 +71,13 @@
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 20;
+    return self.arrayOfTweets.count;
 }
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     
     
-    TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetCell"];
+    TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetCell" forIndexPath:indexPath];
     
     Tweet *tweet = self.arrayOfTweets[indexPath.row];
     
@@ -86,27 +86,22 @@
     
     cell.dateLabel.text = tweet.createdAtString;
     cell.tweetTextLabel.text = tweet.text;
-    
 
-    
-    NSString *retweetCount = [NSString stringWithFormat:@"%d", tweet.retweetCount ];
-    
-    NSString *favoriteCount = [NSString stringWithFormat:@"%d", tweet.favoriteCount];
-    [cell.retweetButton setTitle: retweetCount forState:UIControlStateNormal];
-    
-    [cell.favoriteButton setTitle: favoriteCount forState:UIControlStateNormal];
-
-
+ 
+    cell.retweetLabel.text = [NSString stringWithFormat:@"%d", tweet.retweetCount ];
+    cell.favoriteLabel.text = [NSString stringWithFormat:@"%d", tweet.favoriteCount];
+ 
+ 
     //profile image
     NSString *URLString = tweet.user.profilePicture;
     NSURL *url = [NSURL URLWithString:URLString];
     NSData *urlData = [NSData dataWithContentsOfURL:url];
-    
+
     if (urlData.length != 0) {
 
- 
+
         cell.userImage.image = nil;
-        [cell.userImage setImage:urlData];
+        cell.userImage.image = [UIImage imageWithData: urlData];
 
     }
     

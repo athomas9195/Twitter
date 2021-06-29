@@ -71,7 +71,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="141" id="EKQ-SX-suV">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="141" id="EKQ-SX-suV" customClass="TweetCell">
                                         <rect key="frame" x="0.0" y="24.5" width="375" height="141"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EKQ-SX-suV" id="F8G-b7-ag9">
@@ -89,10 +89,6 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Xm-ko-86n">
-                                                    <rect key="frame" x="151" y="9" width="24" height="23"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vue-cv-GTw">
                                                     <rect key="frame" x="183" y="10" width="42" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -139,6 +135,16 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Home Timeline" id="MOc-fV-EZE"/>
+                    <connections>
+                        <outlet property="authorLabel" destination="R3Q-zV-DNG" id="kOv-Cy-EWE"/>
+                        <outlet property="dateLabel" destination="2yE-n1-ey8" id="tO9-Kh-Wix"/>
+                        <outlet property="favoriteButton" destination="nI0-z2-x0i" id="v4b-BJ-Tv3"/>
+                        <outlet property="replyButton" destination="7oH-sE-euS" id="N0j-0P-3ez"/>
+                        <outlet property="retweetButton" destination="awP-kA-mO7" id="HJn-Jc-hp6"/>
+                        <outlet property="tweetTextLabel" destination="gZy-Fx-D5K" id="xeb-PP-Yxe"/>
+                        <outlet property="userImage" destination="9su-eH-Ufb" id="8jq-Xy-nwp"/>
+                        <outlet property="usernameLabel" destination="vue-cv-GTw" id="4Mx-Sl-Wrs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oQh-hN-GQg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

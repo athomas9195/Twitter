@@ -23,15 +23,21 @@
     // Get timeline
     [[APIManager shared] getHomeTimelineWithCompletion:^(NSArray *tweets, NSError *error) {
         if (tweets) {
+            // inside your loadTweets() function
+            self.arrayOfTweets = tweets;
+            
             NSLog(@"😎😎😎 Successfully loaded home timeline");
             for (NSDictionary *dictionary in tweets) {
                 NSString *text = dictionary[@"text"];
                 NSLog(@"%@", text);
             }
+         
         } else {
             NSLog(@"😫😫😫 Error getting home timeline: %@", error.localizedDescription);
         }
     }];
+    
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -48,7 +54,7 @@
     appDelegate.window.rootViewController = loginViewController;
     
     [[APIManager shared] logout];
-} 
+}
  
 /*
 #pragma mark - Navigation

@@ -100,24 +100,20 @@
     [cell.favoriteButton setTitle:favoriteCount forState:UIControlStateNormal];
 
 
+    //profile image
+    NSString *URLString = self.tweet.user.profilePicture;
+    NSURL *url = [NSURL URLWithString:URLString];
+    NSData *urlData = [NSData dataWithContentsOfURL:url];
     
+    if (urlData.length != 0) {
     
-    //poster view
-    NSString *baseURLString = @"https://image.tmdb.org/t/p/w500";
-    NSString *posterURLString = movie[@"poster_path"];
-    
-    if (posterURLString.length != 0) {
-        NSString *fullPosterURLString = [baseURLString stringByAppendingString:posterURLString];
         
-        NSURL *posterURL = [NSURL URLWithString:fullPosterURLString];
-        
-        cell.posterView.image = nil;
-        [cell.posterView setImageWithURL:posterURL];
+        cell.userImage.image = nil;
+        [cell.userImage setImage:urlData];
         
     }
     
-
-    
+ 
     return cell;
 }
 

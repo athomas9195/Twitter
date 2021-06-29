@@ -27,9 +27,12 @@
    
     [super viewDidLoad];
     
-
+    // Initialize a UIRefreshControl
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(beginRefresh:) forControlEvents:UIControlEventValueChanged];
+    [self.tableView insertSubview:refreshControl atIndex:0];
+ 
      
-    
     //table view delegate
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
@@ -66,7 +69,36 @@
 }
 
 
+// Makes a network request to get updated data
+ // Updates the tableView with the new data
+ // Hides the RefreshControl
+- (void)beginRefresh:(UIRefreshControl *)refreshControl {
 
+    // Get timeline
+    [[APIManager shared] getHomeTimelineWithCompletion:^(NSArray *tweets, NSError *error) {
+        if (tweets) {
+            // inside your loadTweets() function
+            self.arrayOfTweets = tweets;
+            [self.tableView reloadData];
+            NSLog(@"😎😎😎 Successfully loaded home timeline");
+//            for (NSDictionary *dictionary in tweets) {
+//                NSString *text = dictionary[@"text"];
+//                NSLog(@"%@", text);
+//            }
+         
+        } else {
+            NSLog(@"😫😫😫 Error getting home timeline: %@", error.localizedDescription);
+        }
+    }];
+ 
+    
+    // Reload the tableView now that there is new data
+    [self.tableView reloadData];
+
+    // Tell the refreshControl to stop spinning
+    [refreshControl endRefreshing];
+
+}
 
 
 
@@ -111,6 +143,7 @@
         cell.userImage.image = [UIImage imageWithData: urlData];
 
     }
+    
     
  
     return cell;

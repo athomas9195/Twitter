@@ -18,8 +18,6 @@
 
 @property (nonatomic, strong) NSMutableArray *arrayOfTweets;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (nonatomic, strong) Tweet *tweet;
-@property (nonatomic, strong) User *user;
 
 @end
 
@@ -79,38 +77,37 @@
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     
     
-    
-    
     TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetCell"];
     
-    //NSDictionary *tweet = self.arrayOfTweets[indexPath.row];
-    cell.authorLabel.text = self.user.name;
-    cell.usernameLabel.text = self.user.screenName;
+    Tweet *tweet = self.arrayOfTweets[indexPath.row];
     
-    cell.dateLabel.text = self.tweet.createdAtString;
-    cell.tweetTextLabel.text = self.tweet.text;
+    cell.authorLabel.text = tweet.user.name;
+    cell.usernameLabel.text = tweet.user.screenName;
+    
+    cell.dateLabel.text = tweet.createdAtString;
+    cell.tweetTextLabel.text = tweet.text;
     
 
     
-    NSString *retweetCount = [NSString stringWithFormat:@"%d", self.tweet.retweetCount];
+    NSString *retweetCount = [NSString stringWithFormat:@"%d", tweet.retweetCount ];
     
-    NSString *favoriteCount = [NSString stringWithFormat:@"%d", self.tweet.favoriteCount];
-    [cell.retweetButton setTitle:retweetCount forState:UIControlStateNormal];
+    NSString *favoriteCount = [NSString stringWithFormat:@"%d", tweet.favoriteCount];
+    [cell.retweetButton setTitle: retweetCount forState:UIControlStateNormal];
     
-    [cell.favoriteButton setTitle:favoriteCount forState:UIControlStateNormal];
+    [cell.favoriteButton setTitle: favoriteCount forState:UIControlStateNormal];
 
 
     //profile image
-    NSString *URLString = self.tweet.user.profilePicture;
+    NSString *URLString = tweet.user.profilePicture;
     NSURL *url = [NSURL URLWithString:URLString];
     NSData *urlData = [NSData dataWithContentsOfURL:url];
     
     if (urlData.length != 0) {
-    
-        
+
+
         cell.userImage.image = nil;
         [cell.userImage setImage:urlData];
-        
+
     }
     
  

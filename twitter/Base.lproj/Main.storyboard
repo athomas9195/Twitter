@@ -127,6 +127,16 @@
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="authorLabel" destination="R3Q-zV-DNG" id="eY9-PR-ztP"/>
+                                            <outlet property="dateLabel" destination="2yE-n1-ey8" id="8MM-f9-2dW"/>
+                                            <outlet property="favoriteButton" destination="nI0-z2-x0i" id="bvh-cJ-Jum"/>
+                                            <outlet property="replyButton" destination="7oH-sE-euS" id="s8z-tg-uax"/>
+                                            <outlet property="retweetButton" destination="awP-kA-mO7" id="Usr-ry-yRp"/>
+                                            <outlet property="tweetTextLabel" destination="gZy-Fx-D5K" id="ESP-b2-dIg"/>
+                                            <outlet property="userImage" destination="9su-eH-Ufb" id="C8R-if-yt2"/>
+                                            <outlet property="usernameLabel" destination="vue-cv-GTw" id="pEX-Ox-w5j"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -135,16 +145,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Home Timeline" id="MOc-fV-EZE"/>
-                    <connections>
-                        <outlet property="authorLabel" destination="R3Q-zV-DNG" id="kOv-Cy-EWE"/>
-                        <outlet property="dateLabel" destination="2yE-n1-ey8" id="tO9-Kh-Wix"/>
-                        <outlet property="favoriteButton" destination="nI0-z2-x0i" id="v4b-BJ-Tv3"/>
-                        <outlet property="replyButton" destination="7oH-sE-euS" id="N0j-0P-3ez"/>
-                        <outlet property="retweetButton" destination="awP-kA-mO7" id="HJn-Jc-hp6"/>
-                        <outlet property="tweetTextLabel" destination="gZy-Fx-D5K" id="xeb-PP-Yxe"/>
-                        <outlet property="userImage" destination="9su-eH-Ufb" id="8jq-Xy-nwp"/>
-                        <outlet property="usernameLabel" destination="vue-cv-GTw" id="4Mx-Sl-Wrs"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oQh-hN-GQg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -10,10 +10,16 @@
 #import "APIManager.h"
 #import "AppDelegate.h"
 #import "LoginViewController.h"
+#import "TweetCell.h"
+#import "Tweet.h"
+#import "User.h"
  
-@interface TimelineViewController ()
+@interface TimelineViewController () <UITableViewDataSource, UITableViewDelegate>
 
-
+@property (nonatomic, strong) NSMutableArray *arrayOfTweets;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) Tweet *tweet;
+@property (nonatomic, strong) User *user;
 
 @end
 
@@ -21,6 +27,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    
+    
+    //table view delegate
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+    
     
     // Get timeline
     [[APIManager shared] getHomeTimelineWithCompletion:^(NSArray *tweets, NSError *error) {
@@ -39,6 +53,8 @@
         }
     }];
     
+    
+    
 
 }
 
@@ -46,6 +62,72 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+
+
+
+
+
+
+
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 20;
+}
+
+- (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    
+    
+    
+    
+    TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetCell"];
+    
+    //NSDictionary *tweet = self.arrayOfTweets[indexPath.row];
+    cell.authorLabel.text = self.user.name;
+    cell.usernameLabel.text = self.user.screenName;
+    
+    cell.dateLabel.text = self.tweet.createdAtString;
+    cell.tweetTextLabel.text = self.tweet.text;
+    
+    [cell.retweetButton setTitle:self.tweet.retweetCount forState:UIControlStateNormal];
+    
+    [cell.favoriteButton setTitle:self.tweet.favoriteCount forState:UIControlStateNormal];
+    
+
+    
+    
+    
+    //poster view
+    NSString *baseURLString = @"https://image.tmdb.org/t/p/w500";
+    NSString *posterURLString = movie[@"poster_path"];
+    
+    if (posterURLString.length != 0) {
+        NSString *fullPosterURLString = [baseURLString stringByAppendingString:posterURLString];
+        
+        NSURL *posterURL = [NSURL URLWithString:fullPosterURLString];
+        
+        cell.posterView.image = nil;
+        [cell.posterView setImageWithURL:posterURL];
+        
+    }
+    
+
+    
+    return cell;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 -(void)didLogOut {
     // TimelineViewController.m
@@ -57,6 +139,9 @@
     
     [[APIManager shared] logout];
 }
+
+
+
  
 /*
 #pragma mark - Navigation

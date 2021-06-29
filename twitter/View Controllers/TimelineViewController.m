@@ -7,8 +7,8 @@
 //
 
 #import "TimelineViewController.h"
-#import "APIManager.h"
-
+#import "/Users/annathomas/Desktop/FBU/Twitter/twitter/API/APIManager.h"
+ 
 @interface TimelineViewController ()
 
 @end

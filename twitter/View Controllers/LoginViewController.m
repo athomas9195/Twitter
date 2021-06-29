@@ -7,14 +7,13 @@
 //
 
 #import "LoginViewController.h"
-#import "APIManager.h"
-
+#import "/Users/annathomas/Desktop/FBU/Twitter/twitter/API/APIManager.h"
+ 
 @interface LoginViewController ()
-
 @end
 
 @implementation LoginViewController
-
+ 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.

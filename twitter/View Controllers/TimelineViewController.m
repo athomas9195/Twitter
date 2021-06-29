@@ -19,7 +19,7 @@
 @property (nonatomic, strong) NSMutableArray *arrayOfTweets;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
-@end
+@end 
 
 @implementation TimelineViewController
 
@@ -104,7 +104,7 @@
     
     if (urlData.length != 0) {
 
-
+ 
         cell.userImage.image = nil;
         [cell.userImage setImage:urlData];
 

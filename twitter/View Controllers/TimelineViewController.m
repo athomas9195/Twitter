@@ -4,10 +4,10 @@
 //
 //  Created by emersonmalca on 5/28/18.
 //  Copyright © 2018 Emerson Malca. All rights reserved.
-//
+
 
 #import "TimelineViewController.h"
-#import "/Users/annathomas/Desktop/FBU/Twitter/twitter/API/APIManager.h"
+#import "APIManager.h"  
  
 @interface TimelineViewController ()
 

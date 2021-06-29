@@ -7,7 +7,7 @@
 //
 
 #import "LoginViewController.h"
-#import "/Users/annathomas/Desktop/FBU/Twitter/twitter/API/APIManager.h"
+#import "APIManager.h" 
  
 @interface LoginViewController ()
 @end

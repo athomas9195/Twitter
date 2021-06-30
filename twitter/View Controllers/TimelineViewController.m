@@ -77,9 +77,7 @@
     // Get timeline
     [[APIManager shared] getHomeTimelineWithCompletion:^(NSArray *tweets, NSError *error) {
         if (tweets) {
-            // inside your loadTweets() function
-            self.arrayOfTweets = tweets;
-            [self.tableView reloadData];
+            
             NSLog(@"😎😎😎 Successfully loaded home timeline");
 //            for (NSDictionary *dictionary in tweets) {
 //                NSString *text = dictionary[@"text"];

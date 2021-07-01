@@ -34,6 +34,9 @@
 
 -(void) refreshData {
    
+    self.favoriteLabel.text = [NSString stringWithFormat:@"%d", self.tweet.favoriteCount];
+    self.favoriteButton.selected = YES;
+    
 }
 
 

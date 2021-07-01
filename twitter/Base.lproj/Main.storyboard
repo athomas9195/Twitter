@@ -236,7 +236,7 @@
                                             <outlet property="tweetTextLabel" destination="gZy-Fx-D5K" id="ESP-b2-dIg"/>
                                             <outlet property="userImage" destination="9su-eH-Ufb" id="C8R-if-yt2"/>
                                             <outlet property="usernameLabel" destination="vue-cv-GTw" id="pEX-Ox-w5j"/>
-                                            <segue destination="hKL-d1-M9a" kind="show" id="wdF-64-XR0"/>
+                                            <segue destination="hKL-d1-M9a" kind="show" identifier="toDetails" id="wdF-64-XR0"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -255,7 +255,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="sxr-2m-Gql"/>
                         <barButtonItem key="rightBarButtonItem" image="edit-icon" id="eTU-PC-YtB">
                             <connections>
-                                <segue destination="RIM-bN-APb" kind="presentation" id="izo-DN-RMC"/>
+                                <segue destination="RIM-bN-APb" kind="presentation" identifier="toCompose" id="izo-DN-RMC"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

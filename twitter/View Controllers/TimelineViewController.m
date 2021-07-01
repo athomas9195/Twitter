@@ -180,22 +180,28 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     
-    UINavigationController *navigationController = [segue destinationViewController];
-        ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
-        composeController.delegate = self;
+    if ([[segue identifier] isEqualToString:@"toCompose"]) {
+        UINavigationController *navigationController = [segue destinationViewController];
+            ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
+            composeController.delegate = self;
+        
+    } else if ([[segue identifier] isEqualToString:@"toDetails"]){
+        //tweet details segue
+         
+        UITableViewCell *tappedCell = sender;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
+        
+        Tweet *tweet = self.arrayOfTweets[indexPath.row];
+        
+        DetailsViewController *detailsViewController = [segue destinationViewController];
+        
+        detailsViewController.tweet = tweet;
+        
+    }
     
-    
-    //tweet details segue
-    
-    UITableViewCell *tappedCell = sender;
-    NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
-    
-    Tweet *tweet = self.arrayOfTweets[indexPath.row];
-    
-    DetailsViewController *detailsViewController = [segue destinationViewController];
-    
-    detailsViewController.tweet = tweet;
+   
 }
+
 
 
 - (void)didTweet:(nonnull Tweet *)tweet {

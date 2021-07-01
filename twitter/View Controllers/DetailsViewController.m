@@ -30,6 +30,9 @@
     
     Tweet *tweet = self.tweet;
     
+    self.userImageView.layer.cornerRadius = 20;
+    self.userImageView.clipsToBounds = YES;
+    
     self.authorNameLabel.text = tweet.user.name;
     
     

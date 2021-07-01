@@ -15,6 +15,7 @@
 #import "User.h"
 #import "ComposeViewController.h"
 #import "DetailsViewController.h"
+#import <QuartzCore/QuartzCore.h>
  
 @interface TimelineViewController () <ComposeViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
  
@@ -42,6 +43,8 @@
     
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = UITableViewAutomaticDimension;
+    
+    
     
     // Get timeline
     [[APIManager shared] getHomeTimelineWithCompletion:^(NSArray *tweets, NSError *error) {
@@ -110,6 +113,8 @@
     
     Tweet *tweet = self.arrayOfTweets[indexPath.row];
     
+    cell.userImage.layer.cornerRadius = 20;
+    cell.userImage.clipsToBounds = YES; 
     
     cell.authorLabel.text = tweet.user.name;
     
@@ -126,7 +131,9 @@
     cell.retweetLabel.text = [NSString stringWithFormat:@"%d", tweet.retweetCount ];
     cell.favoriteLabel.text = [NSString stringWithFormat:@"%d", tweet.favoriteCount];
  
-    cell.tweet = tweet;  
+    cell.tweet = tweet;
+    
+
  
     //profile image
     NSString *URLString = tweet.user.profilePicture;

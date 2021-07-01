@@ -180,7 +180,7 @@
 
 - (void)didTweet:(nonnull Tweet *)tweet {
     [self.arrayOfTweets insertObject:tweet atIndex:0];
-    [self.tableView reloadData]; 
+    [self.tableView reloadData];
 }
 
 

@@ -236,7 +236,7 @@
                                             <outlet property="tweetTextLabel" destination="gZy-Fx-D5K" id="ESP-b2-dIg"/>
                                             <outlet property="userImage" destination="9su-eH-Ufb" id="C8R-if-yt2"/>
                                             <outlet property="usernameLabel" destination="vue-cv-GTw" id="pEX-Ox-w5j"/>
-                                            <segue destination="hKL-d1-M9a" kind="show" id="xfg-9B-l0c"/>
+                                            <segue destination="hKL-d1-M9a" kind="show" id="wdF-64-XR0"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -307,10 +307,10 @@
             </objects>
             <point key="canvasLocation" x="3326.1538461538462" y="36.96682464454976"/>
         </scene>
-        <!--View Controller-->
+        <!--Details View Controller-->
         <scene sceneID="t9s-B3-cU4">
             <objects>
-                <viewController id="hKL-d1-M9a" sceneMemberID="viewController">
+                <viewController id="hKL-d1-M9a" customClass="DetailsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XHQ-Sa-gyd">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -405,6 +405,18 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="faW-0a-4m9"/>
+                    <connections>
+                        <outlet property="authorNameLabel" destination="8bV-v6-u2P" id="yBJ-UN-jA8"/>
+                        <outlet property="dateLabel" destination="qXY-uK-SRf" id="thK-0Q-A4k"/>
+                        <outlet property="favoriteButton" destination="x2g-Cd-ItT" id="fFl-Rd-6EU"/>
+                        <outlet property="favoriteLabel" destination="CfR-12-QYV" id="U3j-5P-gug"/>
+                        <outlet property="replyButton" destination="ICI-u0-rxD" id="Llc-t0-ltw"/>
+                        <outlet property="retweetButton" destination="kHZ-Mi-mzC" id="Rgy-aX-2tF"/>
+                        <outlet property="retweetLabel" destination="6kH-Kh-0Re" id="C6W-tg-oa6"/>
+                        <outlet property="tweetTextLabel" destination="n9E-oD-VxT" id="ZYL-eW-iJS"/>
+                        <outlet property="userImageView" destination="Rof-mo-Dc9" id="ePE-04-JJh"/>
+                        <outlet property="usernameLabel" destination="Mbv-oB-rWK" id="eHF-XU-g03"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wtO-Op-Os0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -14,6 +14,7 @@
 #import "Tweet.h"
 #import "User.h"
 #import "ComposeViewController.h"
+#import "DetailsViewController.h"
  
 @interface TimelineViewController () <ComposeViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
  
@@ -113,7 +114,7 @@
     cell.authorLabel.text = tweet.user.name;
     
     
-    NSString *userhandle = @"@"; 
+    NSString *userhandle = @"@";
     NSString *fullUserScreenName = [userhandle stringByAppendingString:tweet.user.screenName];
     
     cell.usernameLabel.text = fullUserScreenName;
@@ -182,7 +183,19 @@
     UINavigationController *navigationController = [segue destinationViewController];
         ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
         composeController.delegate = self;
-}  
+    
+    
+    //tweet details segue
+    
+    UITableViewCell *tappedCell = sender;
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
+    
+    Tweet *tweet = self.arrayOfTweets[indexPath.row];
+    
+    DetailsViewController *detailsViewController = [segue destinationViewController];
+    
+    detailsViewController.tweet = tweet;
+}
 
 
 - (void)didTweet:(nonnull Tweet *)tweet {

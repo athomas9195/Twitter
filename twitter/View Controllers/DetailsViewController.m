@@ -7,6 +7,7 @@
 //
 
 #import "DetailsViewController.h"
+#import "Tweet.h"
 
 @interface DetailsViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *userImageView;
@@ -26,7 +27,38 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    Tweet *tweet = self.tweet;
+    
+    self.authorNameLabel.text = tweet.user.name;
+    
+    
+    NSString *userhandle = @"@";
+    NSString *fullUserScreenName = [userhandle stringByAppendingString:tweet.user.screenName];
+    
+    self.usernameLabel.text = fullUserScreenName;
+    
+    self.dateLabel.text = tweet.createdAtString;
+    self.tweetTextLabel.text = tweet.text;
+    
+ 
+    self.retweetLabel.text = [NSString stringWithFormat:@"%d", tweet.retweetCount ];
+    self.favoriteLabel.text = [NSString stringWithFormat:@"%d", tweet.favoriteCount];
+ 
+    self.tweet = tweet;
+ 
+    //profile image
+    NSString *URLString = tweet.user.profilePicture;
+    NSURL *url = [NSURL URLWithString:URLString];
+    NSData *urlData = [NSData dataWithContentsOfURL:url];
+
+    if (urlData.length != 0) {
+
+
+        self.userImageView.image = nil;
+        self.userImageView.image = [UIImage imageWithData: urlData];
+
+    }
 }
 
 /*

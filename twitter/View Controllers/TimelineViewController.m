@@ -109,8 +109,14 @@
     
     Tweet *tweet = self.arrayOfTweets[indexPath.row];
     
+    
     cell.authorLabel.text = tweet.user.name;
-    cell.usernameLabel.text = tweet.user.screenName;
+    
+    
+    NSString *userhandle = @"@"; 
+    NSString *fullUserScreenName = [userhandle stringByAppendingString:tweet.user.screenName];
+    
+    cell.usernameLabel.text = fullUserScreenName;
     
     cell.dateLabel.text = tweet.createdAtString;
     cell.tweetTextLabel.text = tweet.text;

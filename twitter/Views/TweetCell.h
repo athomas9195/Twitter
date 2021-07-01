@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "Tweet.h"
+ 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TweetCell : UITableViewCell
@@ -19,8 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIButton *replyButton;
 @property (weak, nonatomic) IBOutlet UIButton *retweetButton;
 @property (weak, nonatomic) IBOutlet UIButton *favoriteButton;
-
-@property (nonatomic, strong) NSObject *tweet;
+ 
+@property (nonatomic, strong) Tweet *tweet; 
 @property (weak, nonatomic) IBOutlet UILabel *replyLabel;
 @property (weak, nonatomic) IBOutlet UILabel *retweetLabel;
 @property (weak, nonatomic) IBOutlet UILabel *favoriteLabel;

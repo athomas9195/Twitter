@@ -7,8 +7,35 @@
 //
 
 #import "TweetCell.h"
+#import "Tweet.h"
+#import "TimelineViewController.h"
+#import "APIManager.h"
+
 
 @implementation TweetCell
+
+- (IBAction)didTapFavorite:(id)sender {
+    self.tweet.favorited = YES;
+    self.tweet.favoriteCount += 1;
+  
+    [self refreshData];
+    
+     
+    [[APIManager shared] favorite:self.tweet completion:^(Tweet *tweet, NSError *error) {
+        if(error){
+             NSLog(@"Error favoriting tweet: %@", error.localizedDescription);
+        }
+        else{
+            NSLog(@"Successfully favorited the following Tweet: %@", tweet.text);
+        }
+    }];
+    
+}
+
+-(void) refreshData {
+   
+}
+
 
 - (void)awakeFromNib {
     [super awakeFromNib];

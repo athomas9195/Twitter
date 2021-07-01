@@ -47,14 +47,10 @@
             // inside your loadTweets() function
             self.arrayOfTweets = tweets;
             [self.tableView reloadData]; 
-            NSLog(@"😎😎😎 Successfully loaded home timeline");
-//            for (NSDictionary *dictionary in tweets) {
-//                NSString *text = dictionary[@"text"];
-//                NSLog(@"%@", text);
-//            }
+            //NSLog(@"😎😎😎 Successfully loaded home timeline");
          
         } else {
-            NSLog(@"😫😫😫 Error getting home timeline: %@", error.localizedDescription);
+            //NSLog(@"😫😫😫 Error getting home timeline: %@", error.localizedDescription);
         }
     }];
     
@@ -78,14 +74,14 @@
     [[APIManager shared] getHomeTimelineWithCompletion:^(NSArray *tweets, NSError *error) {
         if (tweets) {
             
-            NSLog(@"😎😎😎 Successfully loaded home timeline");
+            //NSLog(@"😎😎😎 Successfully loaded home timeline");
 //            for (NSDictionary *dictionary in tweets) {
 //                NSString *text = dictionary[@"text"];
 //                NSLog(@"%@", text);
 //            }
          
         } else {
-            NSLog(@"😫😫😫 Error getting home timeline: %@", error.localizedDescription);
+            //NSLog(@"😫😫😫 Error getting home timeline: %@", error.localizedDescription);
         }
     }];
  

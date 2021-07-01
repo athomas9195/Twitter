@@ -7,6 +7,7 @@
 //
 
 #import "ComposeViewController.h"
+#import "APIManager.h"
 
 @interface ComposeViewController ()
 
@@ -14,9 +15,22 @@
 
 @implementation ComposeViewController
 - (IBAction)closeBarButton:(id)sender {
+    [self dismissViewControllerAnimated:true completion:nil];
 }
 
 - (IBAction)tweetBarButton:(id)sender {
+    
+    NSString *text = self.textView.text;
+    
+    // post tweet
+    [[APIManager shared] postStatusWithText:text completion:^(Tweet *tweet, NSError *error) {
+        if(error) {
+            NSLog(@"DID NOT WORK");
+        }
+       
+    }]; 
+    
+    [self closeBarButton:self];
 }
 
 

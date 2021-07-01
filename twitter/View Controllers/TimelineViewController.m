@@ -95,13 +95,7 @@
 
 }
 
-
-
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 148;
-}
+ 
  
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -180,8 +174,8 @@
     
     UINavigationController *navigationController = [segue destinationViewController];
         ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
-        composeController.delegate = self; 
-}
+        composeController.delegate = self;
+}  
 
 
 @end

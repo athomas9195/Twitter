@@ -91,13 +91,13 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vue-cv-GTw">
-                                                    <rect key="frame" x="183.33333333333334" y="10" width="42" height="21"/>
+                                                    <rect key="frame" x="153.66666666666666" y="10" width="42" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2yE-n1-ey8">
-                                                    <rect key="frame" x="233.33333333333334" y="10" width="42.000000000000028" height="21"/>
+                                                    <rect key="frame" x="225.66666666666666" y="10" width="41.999999999999972" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -213,7 +213,7 @@
                                                 <constraint firstItem="ryx-lD-wgq" firstAttribute="height" secondItem="g09-WR-lp9" secondAttribute="height" id="QO2-SS-KGr"/>
                                                 <constraint firstAttribute="bottom" secondItem="KAd-7s-XKc" secondAttribute="bottom" constant="9.6666666666666714" id="ZLJ-CG-3di"/>
                                                 <constraint firstItem="9su-eH-Ufb" firstAttribute="leading" secondItem="F8G-b7-ag9" secondAttribute="leading" constant="8" id="ZqN-Yw-EOL"/>
-                                                <constraint firstItem="vue-cv-GTw" firstAttribute="leading" secondItem="bPo-ev-bOD" secondAttribute="trailing" constant="33.5" id="aHo-zI-fbY"/>
+                                                <constraint firstItem="vue-cv-GTw" firstAttribute="leading" secondItem="bPo-ev-bOD" secondAttribute="trailing" constant="4" id="aHo-zI-fbY"/>
                                                 <constraint firstAttribute="bottom" secondItem="ryx-lD-wgq" secondAttribute="bottom" constant="9.6666666666666714" id="bqR-6q-FR0"/>
                                                 <constraint firstItem="gZy-Fx-D5K" firstAttribute="leading" secondItem="R3Q-zV-DNG" secondAttribute="leading" id="c3O-l7-hNE"/>
                                                 <constraint firstItem="ryx-lD-wgq" firstAttribute="width" secondItem="g09-WR-lp9" secondAttribute="width" id="dhp-fp-CVq"/>
@@ -222,7 +222,7 @@
                                                 <constraint firstItem="awP-kA-mO7" firstAttribute="height" secondItem="7oH-sE-euS" secondAttribute="height" id="hKM-dv-UFp"/>
                                                 <constraint firstItem="g09-WR-lp9" firstAttribute="top" secondItem="gZy-Fx-D5K" secondAttribute="bottom" constant="8" id="krH-UJ-idY"/>
                                                 <constraint firstItem="bPo-ev-bOD" firstAttribute="leading" secondItem="R3Q-zV-DNG" secondAttribute="trailing" constant="8" id="nHl-eT-iCr"/>
-                                                <constraint firstItem="2yE-n1-ey8" firstAttribute="leading" secondItem="vue-cv-GTw" secondAttribute="trailing" constant="8" id="qKG-Vy-7Oi"/>
+                                                <constraint firstItem="2yE-n1-ey8" firstAttribute="leading" secondItem="vue-cv-GTw" secondAttribute="trailing" constant="30" id="qKG-Vy-7Oi"/>
                                                 <constraint firstItem="g09-WR-lp9" firstAttribute="leading" secondItem="gZy-Fx-D5K" secondAttribute="leading" id="qOb-wp-gkQ"/>
                                                 <constraint firstItem="KAd-7s-XKc" firstAttribute="top" secondItem="ryx-lD-wgq" secondAttribute="top" id="rFh-J2-1el"/>
                                                 <constraint firstItem="R3Q-zV-DNG" firstAttribute="leading" secondItem="9su-eH-Ufb" secondAttribute="trailing" constant="8" id="uTj-sB-Vm2"/>

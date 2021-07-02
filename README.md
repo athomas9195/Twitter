@@ -26,7 +26,7 @@ The following **optional** features are implemented:
   - Contains the user header view: picture and tagline
   - Contains a section with the users basic stats: # tweets, # following, # followers
   - [ ] Profile view should include that user's timeline
-- [ ] User should be able to unretweet and unfavorite and should decrement the retweet and favorite count. Refer to [[this guide|unretweeting]] for help on implementing unretweeting.
+- [x] User should be able to unretweet and unfavorite and should decrement the retweet and favorite count. Refer to [[this guide|unretweeting]] for help on implementing unretweeting.
 - [ ] Links in tweets are clickable.
 - [ ] User can tap the profile image in any tweet to see another user's profile
   - Contains the user header view: picture and tagline
@@ -41,8 +41,6 @@ The following **optional** features are implemented:
 
 
 The following **additional** features are implemented:
-
-- [ ] List anything else that you can get done to improve the app functionality!
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
@@ -63,6 +61,7 @@ Here's a walkthrough of implemented user stories:
 
 ![](https://media.giphy.com/media/so1EsUjmF3hwKtCynY/giphy.gif)
 
+![](https://media.giphy.com/media/SzesZ91Yfs43cCZJnK/giphy.gif) 
 
 ## Notes
 

@@ -252,7 +252,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="MOc-fV-EZE">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="sxr-2m-Gql"/>
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="sxr-2m-Gql">
+                            <connections>
+                                <action selector="didTapLogout:" destination="Lbl-k5-U4i" id="Cw4-Fi-cAn"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="edit-icon" id="eTU-PC-YtB">
                             <connections>
                                 <segue destination="RIM-bN-APb" kind="presentation" identifier="toCompose" id="izo-DN-RMC"/>

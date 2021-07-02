@@ -9,6 +9,7 @@
 #import "DetailsViewController.h"
 #import "Tweet.h"
 #import "APIManager.h"
+#import "TimelineViewController.h"
 
 @interface DetailsViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *userImageView;
@@ -21,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *replyButton;
 @property (weak, nonatomic) IBOutlet UIButton *retweetButton;
 @property (weak, nonatomic) IBOutlet UIButton *favoriteButton;
+
 
 @end
 
@@ -67,7 +69,6 @@
    
     self.favoriteLabel.text = [NSString stringWithFormat:@"%d", self.tweet.favoriteCount];
     self.favoriteButton.selected = YES;
-     
 }
 
 -(void) refreshDataRetweet{

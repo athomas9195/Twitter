@@ -25,6 +25,9 @@
 @end 
 
 @implementation TimelineViewController
+- (IBAction)didTapLogout:(id)sender {
+    [self didLogOut];
+} 
 
 - (void)viewDidLoad {
    
@@ -114,7 +117,7 @@
     Tweet *tweet = self.arrayOfTweets[indexPath.row];
     
     cell.userImage.layer.cornerRadius = 20;
-    cell.userImage.clipsToBounds = YES; 
+    cell.userImage.clipsToBounds = YES;
     
     cell.authorLabel.text = tweet.user.name;
     

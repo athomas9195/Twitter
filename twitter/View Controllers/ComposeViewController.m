@@ -41,6 +41,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.textView.layer.borderColor = [UIColor grayColor].CGColor;
+    self.textView.layer.borderWidth = 2.0f; 
+    
     // Do any additional setup after loading the view.
 }
 

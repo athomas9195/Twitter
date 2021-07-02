@@ -114,7 +114,7 @@
     Tweet *tweet = self.arrayOfTweets[indexPath.row];
     
     cell.userImage.layer.cornerRadius = 20;
-    cell.userImage.clipsToBounds = YES; 
+    cell.userImage.clipsToBounds = YES;
     
     cell.authorLabel.text = tweet.user.name;
     
@@ -191,6 +191,8 @@
         UINavigationController *navigationController = [segue destinationViewController];
             ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
             composeController.delegate = self;
+        
+    
         
     } else if ([[segue identifier] isEqualToString:@"toDetails"]){
         //tweet details segue

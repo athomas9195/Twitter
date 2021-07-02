@@ -11,13 +11,15 @@
 
 @interface ComposeViewController ()
 
-@end
+@end 
 
 @implementation ComposeViewController
+//closes the compose view
 - (IBAction)closeBarButton:(id)sender {
     [self dismissViewControllerAnimated:true completion:nil];
 }
 
+//opens the modal compose view
 - (IBAction)tweetBarButton:(id)sender {
     
     NSString *text = self.textView.text;
@@ -37,25 +39,12 @@
     [self closeBarButton:self];
 }
 
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.textView.layer.borderColor = [UIColor grayColor].CGColor;
     self.textView.layer.borderWidth = 2.0f;
     
-    
-    // Do any additional setup after loading the view.
-}
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
 }
-*/
 
 @end

@@ -51,6 +51,7 @@ static NSString * const baseURLString = @"https://api.twitter.com";
     return self;
 }
 
+//retrieves home timeline of tweets
 - (void)getHomeTimelineWithCompletion:(void(^)(NSArray *tweets, NSError *error))completion {
     
     // Create a GET Request
@@ -79,7 +80,7 @@ static NSString * const baseURLString = @"https://api.twitter.com";
     }];
 }
 
-// APIManager.m
+//calls api to favorite a tweet
 - (void)favorite:(Tweet *)tweet completion:(void (^)(Tweet *, NSError *))completion{
 
     NSString *urlString = @"1.1/favorites/create.json";
@@ -92,6 +93,7 @@ static NSString * const baseURLString = @"https://api.twitter.com";
     }];
 }
 
+//calls api to unfavorite a tweet
 - (void)unfavorite:(Tweet *)tweet completion:(void (^)(Tweet *, NSError *))completion{
 
     NSString *urlString = @"1.1/favorites/destroy.json"; 
@@ -104,6 +106,7 @@ static NSString * const baseURLString = @"https://api.twitter.com";
     }];
 }
 
+//calls api to retweet
 -(void)retweet:(Tweet *)tweet completion:(void (^)(Tweet *, NSError *))completion{
     
     NSString *urlString = @"1.1/statuses/retweet.json";
@@ -117,7 +120,7 @@ static NSString * const baseURLString = @"https://api.twitter.com";
     
 }
 
-
+//calls api to unretweet a tweet
 -(void)unretweet:(Tweet *)tweet completion:(void (^)(Tweet *, NSError *))completion{
     
     NSString *urlString = @"1.1/statuses/unretweet.json"; 

@@ -12,19 +12,19 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TweetCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UIImageView *userImage;
-@property (weak, nonatomic) IBOutlet UILabel *authorLabel;
-@property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
-@property (weak, nonatomic) IBOutlet UILabel *tweetTextLabel;
-@property (weak, nonatomic) IBOutlet UIButton *replyButton;
-@property (weak, nonatomic) IBOutlet UIButton *retweetButton;
-@property (weak, nonatomic) IBOutlet UIButton *favoriteButton;
+@property (weak, nonatomic) IBOutlet UIImageView *userImage; //user profile pic
+@property (weak, nonatomic) IBOutlet UILabel *authorLabel; //user's name
+@property (weak, nonatomic) IBOutlet UILabel *usernameLabel; //user's screen name
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel; //how long ago it was posted
+@property (weak, nonatomic) IBOutlet UILabel *tweetTextLabel; //the tweet text
+@property (weak, nonatomic) IBOutlet UIButton *replyButton; //reply button
+@property (weak, nonatomic) IBOutlet UIButton *retweetButton; //retweet button
+@property (weak, nonatomic) IBOutlet UIButton *favoriteButton; //favorite button
  
-@property (nonatomic, strong) Tweet *tweet; 
-@property (weak, nonatomic) IBOutlet UILabel *replyLabel;
-@property (weak, nonatomic) IBOutlet UILabel *retweetLabel;
-@property (weak, nonatomic) IBOutlet UILabel *favoriteLabel;
+@property (nonatomic, strong) Tweet *tweet;  //stores the reference to the current tweet
+@property (weak, nonatomic) IBOutlet UILabel *replyLabel; //reply count (static)
+@property (weak, nonatomic) IBOutlet UILabel *retweetLabel; //retweet count
+@property (weak, nonatomic) IBOutlet UILabel *favoriteLabel; //favorite count
 
 @end
 

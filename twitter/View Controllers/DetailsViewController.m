@@ -12,27 +12,30 @@
 #import "TimelineViewController.h"
 
 @interface DetailsViewController ()
-@property (weak, nonatomic) IBOutlet UIImageView *userImageView;
-@property (weak, nonatomic) IBOutlet UILabel *authorNameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *tweetTextLabel;
-@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
-@property (weak, nonatomic) IBOutlet UILabel *retweetLabel;
-@property (weak, nonatomic) IBOutlet UILabel *favoriteLabel;
-@property (weak, nonatomic) IBOutlet UIButton *replyButton;
-@property (weak, nonatomic) IBOutlet UIButton *retweetButton;
-@property (weak, nonatomic) IBOutlet UIButton *favoriteButton;
+@property (weak, nonatomic) IBOutlet UIImageView *userImageView; //user profile pic
+@property (weak, nonatomic) IBOutlet UILabel *authorNameLabel; //user name
+@property (weak, nonatomic) IBOutlet UILabel *usernameLabel; //user screen name
+@property (weak, nonatomic) IBOutlet UILabel *tweetTextLabel; //the actual tweet text
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel; //how long ago it was posted
+@property (weak, nonatomic) IBOutlet UILabel *retweetLabel; //retweet count
+@property (weak, nonatomic) IBOutlet UILabel *favoriteLabel; //favorite count
+@property (weak, nonatomic) IBOutlet UIButton *replyButton; //reply button
+@property (weak, nonatomic) IBOutlet UIButton *retweetButton; //retweet button
+@property (weak, nonatomic) IBOutlet UIButton *favoriteButton; //favorite button
 
 
 @end
 
 @implementation DetailsViewController
+
+//when user clicks on retweet
 - (IBAction)didTapRetweet:(id)sender {
     self.tweet.retweeted = YES;
     self.tweet.retweetCount +=1;
     
     [self refreshDataRetweet];
     
+    //call api to retweet
     [[APIManager shared] retweet:self.tweet completion:^(Tweet *tweet, NSError *error) {
         if(error){
              NSLog(@"Error retweeting tweet: %@", error.localizedDescription);
@@ -45,14 +48,14 @@
 }
 
 
-
+//when user clicks on favorite button
 - (IBAction)didTapFavorite:(id)sender {
     self.tweet.favorited = YES;
     self.tweet.favoriteCount += 1;
   
     [self refreshDataFavorite];
     
-     
+    //tells api to favorite that tweet
     [[APIManager shared] favorite:self.tweet completion:^(Tweet *tweet, NSError *error) {
         if(error){
              NSLog(@"Error favoriting tweet: %@", error.localizedDescription);
@@ -64,13 +67,14 @@
     
 }
 
-
+//reloads the views for details view
 -(void) refreshDataFavorite {
    
     self.favoriteLabel.text = [NSString stringWithFormat:@"%d", self.tweet.favoriteCount];
     self.favoriteButton.selected = YES;
 }
 
+//reloads the views for details view
 -(void) refreshDataRetweet{
    
     self.retweetLabel.text = [NSString stringWithFormat:@"%d", self.tweet.retweetCount];
@@ -83,6 +87,7 @@
     
     Tweet *tweet = self.tweet;
     
+    //set custom details display
     self.userImageView.layer.cornerRadius = 20;
     self.userImageView.clipsToBounds = YES;
     
@@ -127,15 +132,5 @@
 
     }
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

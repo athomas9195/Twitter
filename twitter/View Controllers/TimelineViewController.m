@@ -19,11 +19,12 @@
  
 @interface TimelineViewController () <ComposeViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
  
-@property (nonatomic, strong) NSMutableArray *arrayOfTweets;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) NSMutableArray *arrayOfTweets; //stores a list with tweet info
+@property (weak, nonatomic) IBOutlet UITableView *tableView; //table for the timeline 
 
 @end 
 
+//this view controller controls the home timline
 @implementation TimelineViewController
 - (IBAction)didTapLogout:(id)sender {
     [self didLogOut];
@@ -43,7 +44,7 @@
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     
-    
+    //set cell height to automatic
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = UITableViewAutomaticDimension;
     
@@ -69,7 +70,7 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
 }
 
 
@@ -80,17 +81,7 @@
 
     // Get timeline
     [[APIManager shared] getHomeTimelineWithCompletion:^(NSArray *tweets, NSError *error) {
-        if (tweets) {
-            
-            //NSLog(@"😎😎😎 Successfully loaded home timeline");
-//            for (NSDictionary *dictionary in tweets) {
-//                NSString *text = dictionary[@"text"];
-//                NSLog(@"%@", text);
-//            }
-         
-        } else {
-            //NSLog(@"😫😫😫 Error getting home timeline: %@", error.localizedDescription);
-        }
+       
     }];
  
     
@@ -104,11 +95,12 @@
 
  
  
-
+//set how many rows in timeline display
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.arrayOfTweets.count;
 }
 
+//enables custom cell displays
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     
     
@@ -167,7 +159,7 @@
 
 
 
-
+//allows user to log out
 -(void)didLogOut {
     // TimelineViewController.m
     AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
@@ -190,13 +182,14 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     
+    //if the user clicks on compose icon
     if ([[segue identifier] isEqualToString:@"toCompose"]) {
         UINavigationController *navigationController = [segue destinationViewController];
             ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
             composeController.delegate = self;
         
     
-        
+    //if user clicks on a tweet
     } else if ([[segue identifier] isEqualToString:@"toDetails"]){
         //tweet details segue
          
@@ -215,7 +208,8 @@
 }
 
 
-
+//when user clicks on Tweet after composing a tweet.
+//adds the new tweet onto the tweet array (displays at the top of timeline)
 - (void)didTweet:(nonnull Tweet *)tweet {
     [self.arrayOfTweets insertObject:tweet atIndex:0];
     [self.tableView reloadData];

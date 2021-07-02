@@ -27,7 +27,7 @@
 @implementation TimelineViewController
 - (IBAction)didTapLogout:(id)sender {
     [self didLogOut];
-} 
+}
 
 - (void)viewDidLoad {
    

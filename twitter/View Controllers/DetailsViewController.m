@@ -102,6 +102,17 @@
     self.favoriteLabel.text = [NSString stringWithFormat:@"%d", tweet.favoriteCount];
  
     self.tweet = tweet;
+    
+    
+    //button states
+    if(self.tweet.favorited == YES) {
+        self.favoriteButton.selected = YES;
+    }
+    
+    if(self.tweet.retweeted == YES) {
+        self.retweetButton.selected = YES;
+    } 
+    
  
     //profile image
     NSString *URLString = tweet.user.profilePicture;

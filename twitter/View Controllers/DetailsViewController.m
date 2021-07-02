@@ -8,6 +8,7 @@
 
 #import "DetailsViewController.h"
 #import "Tweet.h"
+#import "APIManager.h"
 
 @interface DetailsViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *userImageView;
@@ -24,6 +25,57 @@
 @end
 
 @implementation DetailsViewController
+- (IBAction)didTapRetweet:(id)sender {
+    self.tweet.retweeted = YES;
+    self.tweet.retweetCount +=1;
+    
+    [self refreshDataRetweet];
+    
+    [[APIManager shared] retweet:self.tweet completion:^(Tweet *tweet, NSError *error) {
+        if(error){
+             NSLog(@"Error retweeting tweet: %@", error.localizedDescription);
+        }
+        else{
+            NSLog(@"Successfully retweeted the following Tweet: %@", tweet.text);
+        }
+    }];
+    
+}
+
+
+
+- (IBAction)didTapFavorite:(id)sender {
+    self.tweet.favorited = YES;
+    self.tweet.favoriteCount += 1;
+  
+    [self refreshDataFavorite];
+    
+     
+    [[APIManager shared] favorite:self.tweet completion:^(Tweet *tweet, NSError *error) {
+        if(error){
+             NSLog(@"Error favoriting tweet: %@", error.localizedDescription);
+        }
+        else{
+            NSLog(@"Successfully favorited the following Tweet: %@", tweet.text);
+        }
+    }];
+    
+}
+
+
+-(void) refreshDataFavorite {
+   
+    self.favoriteLabel.text = [NSString stringWithFormat:@"%d", self.tweet.favoriteCount];
+    self.favoriteButton.selected = YES;
+     
+}
+
+-(void) refreshDataRetweet{
+   
+    self.retweetLabel.text = [NSString stringWithFormat:@"%d", self.tweet.retweetCount];
+    self.retweetButton.selected = YES;
+     
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

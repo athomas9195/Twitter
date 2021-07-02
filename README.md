@@ -8,17 +8,17 @@ Time spent: **18** hours spent in total
 
 The following **required** functionality is completed:
 
-- [ ] User sees app icon in home screen and styled launch screen
-- [ ] User can sign in using OAuth login flow
-- [ ] User can Logout
-- [ ] User can view last 20 tweets from their home timeline
-- [ ] In the home timeline, user can view tweet with the user profile picture, username, tweet text, and timestamp.
-- [ ] User can pull to refresh.
-- [ ] User can tap the retweet and favorite buttons in a tweet cell to retweet and/or favorite a tweet.
-- [ ] User can compose a new tweet by tapping on a compose button.
-- [ ] Using AutoLayout, the Tweet cell should adjust its layout for iPhone 11, Pro and SE device sizes as well as accommodate device rotation.
-- [ ] User should display the relative timestamp for each tweet "8m", "7h"
-- [ ] Tweet Details Page: User can tap on a tweet to view it, with controls to retweet and favorite.
+- [x] User sees app icon in home screen and styled launch screen
+- [x] User can sign in using OAuth login flow
+- [x] User can Logout
+- [x] User can view last 20 tweets from their home timeline
+- [x] In the home timeline, user can view tweet with the user profile picture, username, tweet text, and timestamp.
+- [x] User can pull to refresh.
+- [x] User can tap the retweet and favorite buttons in a tweet cell to retweet and/or favorite a tweet.
+- [x] User can compose a new tweet by tapping on a compose button.
+- [x] Using AutoLayout, the Tweet cell should adjust its layout for iPhone 11, Pro and SE device sizes as well as accommodate device rotation.
+- [x] User should display the relative timestamp for each tweet "8m", "7h"
+- [x] Tweet Details Page: User can tap on a tweet to view it, with controls to retweet and favorite.
 
 The following **optional** features are implemented:
 
@@ -46,8 +46,8 @@ The following **additional** features are implemented:
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
-1.
-2.
+1. I would like to discuss the API further. Espeically how the API manager works. I will try creating one for another API and see if I truly understand it.
+2. I'd also want to talk about how the delegate works. 
 
 ## Video Walkthrough
 
@@ -55,10 +55,18 @@ Here's a walkthrough of implemented user stories:
 
 ![](https://media.giphy.com/media/9doXXZCCtpt1AqnEo0/giphy.gif)
 
+![](https://media.giphy.com/media/0XE3aOz7WlUyzCBzHO/giphy.gif)
+
+![](https://media.giphy.com/media/IFyU1S3TthEebxlEm9/giphy.gif)
+
+![](https://media.giphy.com/media/klT0M3I8ZontfxoLzd/giphy.gif)
+
+![](https://media.giphy.com/media/so1EsUjmF3hwKtCynY/giphy.gif)
+
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+The compose user story was challenging at first. I had to read through the provided code a couple of times before understanding it and determining where to write the following code. 
 
 ## Credits
 
@@ -68,7 +76,7 @@ List an 3rd party libraries, icons, graphics, or other assets you used in your a
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright 2021 CodePath
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.

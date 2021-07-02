@@ -34,7 +34,7 @@
         }];
         
     } else if  (self.retweetButton.selected ==YES) {
-        self.tweet.retweeted = NO; 
+        self.tweet.retweeted = NO;
         self.tweet.retweetCount -=1;
         
         [self refreshDataRetweetUnretweet];
@@ -59,23 +59,42 @@
 
 - (IBAction)didTapFavorite:(id)sender {
     
+    if(self.favoriteButton.selected ==NO) {
+        self.tweet.favorited = YES;
+        self.tweet.favoriteCount += 1;
+      
+        [self refreshDataFavorite];
+        
+         
+        [[APIManager shared] favorite:self.tweet completion:^(Tweet *tweet, NSError *error) {
+            if(error){
+                 NSLog(@"Error favoriting tweet: %@", error.localizedDescription);
+            }
+            else{
+                NSLog(@"Successfully favorited the following Tweet: %@", tweet.text);
+            }
+        }];
+        
+    } else if (self.favoriteButton.selected ==YES) {
+        self.tweet.favorited = NO;
+        self.tweet.favoriteCount -= 1;
+      
+        [self refreshDataFavoriteUnfavorite];
+        
+         
+        [[APIManager shared] unfavorite:self.tweet completion:^(Tweet *tweet, NSError *error) {
+            if(error){
+                 NSLog(@"Error favoriting tweet: %@", error.localizedDescription);
+            }
+            else{
+                NSLog(@"Successfully favorited the following Tweet: %@", tweet.text);
+            }
+        }];
+        
+    }
     
     
-    self.tweet.favorited = YES;
-    self.tweet.favoriteCount += 1;
-  
-    [self refreshDataFavorite];
-    
-     
-    [[APIManager shared] favorite:self.tweet completion:^(Tweet *tweet, NSError *error) {
-        if(error){
-             NSLog(@"Error favoriting tweet: %@", error.localizedDescription);
-        }
-        else{
-            NSLog(@"Successfully favorited the following Tweet: %@", tweet.text);
-        }
-    }];
-    
+
 }
 
 -(void) refreshDataFavorite {

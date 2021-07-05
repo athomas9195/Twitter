@@ -154,7 +154,7 @@
     //        self.userRetweetedView.frame = showFrame;
             
         [cell.userRetweetedView setHidden:NO];
-        cell.authorNameRetweetedLabel.text = tweet.user.name;
+        cell.authorNameRetweetedLabel.text = tweet.retweetedByUser.name;
 
     }
     

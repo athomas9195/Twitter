@@ -27,8 +27,36 @@
         
         //api call to retweet
         [[APIManager shared] retweet:self.tweet completion:^(Tweet *tweet, NSError *error) {
-            if(error){
+            if(error!=nil){
+                
                  NSLog(@"Error retweeting tweet: %@", error.localizedDescription);
+                
+                //a network error popup
+                UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Cannot Retweet" message:@"The Internet connection appears to be offline." preferredStyle:(UIAlertControllerStyleAlert)];
+                 
+                // create a cancel action
+                UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel"
+                                                                    style:UIAlertActionStyleCancel
+                                                                  handler:^(UIAlertAction * _Nonnull action) {
+                                                                         // handle cancel response here. Doing nothing will dismiss the view.
+                                                                  }];
+                // add the cancel action to the alertController
+                [alert addAction:cancelAction];
+
+                // create an OK action
+                UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"
+                                                                   style:UIAlertActionStyleDefault
+                                                                 handler:^(UIAlertAction * _Nonnull action) {
+                                                                         // handle response here.
+                                                                 }];
+                // add the OK action to the alert controller
+                [alert addAction:okAction];
+                
+                [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:alert
+                                                                                             animated:YES
+                                                                                           completion:^{
+                                                                                                   // optional code for what happens after the alert controller has finished presenting
+                                                                                           }];
             }
             else{
                 NSLog(@"Successfully retweeted the following Tweet: %@", tweet.text);
@@ -44,7 +72,7 @@
         
         //api call to unretweet
        [[APIManager shared] unretweet:self.tweet completion:^(Tweet *tweet, NSError *error) {
-            if(error){
+            if(error!=nil){
                  NSLog(@"Error retweeting tweet: %@", error.localizedDescription);
             }
             else{
@@ -71,8 +99,35 @@
         
          //api call to favorite
         [[APIManager shared] favorite:self.tweet completion:^(Tweet *tweet, NSError *error) {
-            if(error){
-                 NSLog(@"Error favoriting tweet: %@", error.localizedDescription);
+            if(error!=nil){
+                NSLog(@"Error favoriting tweet: %@", error.localizedDescription);
+               
+               //a network error popup
+               UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Cannot Favorite" message:@"The Internet connection appears to be offline." preferredStyle:(UIAlertControllerStyleAlert)];
+                
+               // create a cancel action
+               UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel"
+                                                                   style:UIAlertActionStyleCancel
+                                                                 handler:^(UIAlertAction * _Nonnull action) {
+                                                                        // handle cancel response here. Doing nothing will dismiss the view.
+                                                                 }];
+               // add the cancel action to the alertController
+               [alert addAction:cancelAction];
+
+               // create an OK action
+               UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"
+                                                                  style:UIAlertActionStyleDefault
+                                                                handler:^(UIAlertAction * _Nonnull action) {
+                                                                        // handle response here.
+                                                                }];
+               // add the OK action to the alert controller
+               [alert addAction:okAction];
+               
+                [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:alert
+                                                                                             animated:YES
+                                                                                           completion:^{
+                                                                                                   // optional code for what happens after the alert controller has finished presenting
+                                                                                           }];
             }
             else{
                 NSLog(@"Successfully favorited the following Tweet: %@", tweet.text);
@@ -88,7 +143,7 @@
         
          //api call to unfavorite
         [[APIManager shared] unfavorite:self.tweet completion:^(Tweet *tweet, NSError *error) {
-            if(error){
+            if(error!=nil){
                  NSLog(@"Error favoriting tweet: %@", error.localizedDescription);
             }
             else{

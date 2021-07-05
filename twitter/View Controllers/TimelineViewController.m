@@ -143,18 +143,33 @@
     
     //is this tweet a retweet?
 
-    CGRect hiddenFrame = cell.userRetweetedView.frame;
-    hiddenFrame.size.height = 0;
-    cell.userRetweetedView.frame = hiddenFrame;
+//    CGRect hiddenFrame = cell.userRetweetedStackView.frame;
+//    hiddenFrame.size.height = 0;
+//    cell.userRetweetedStackView.frame = hiddenFrame;
+    
+    //if is not a retweet
     cell.userRetweetedView.hidden = YES;
-        
+    cell.userRetweetedStackView.hidden = YES;
+    cell.isNotRetweetedConstraint.active = TRUE;
+    cell.isRetweetedConstraint.active = FALSE;
+    
+    cell.isNotRetweetedConstraintLabels.active = TRUE;
+    cell.isRetweetedConstraintLabels.active = FALSE;
+  
+   //if is retweeted
     if(cell.tweet.retweetedByUser != nil) {
     //        CGRect showFrame = self.userRetweetedView.frame;
     //        showFrame.size.height = 24;
     //        self.userRetweetedView.frame = showFrame;
             
         [cell.userRetweetedView setHidden:NO];
+        cell.userRetweetedStackView.hidden = NO; 
         cell.authorNameRetweetedLabel.text = tweet.retweetedByUser.name;
+        cell.isNotRetweetedConstraint.active = FALSE;
+        cell.isRetweetedConstraint.active = TRUE;
+        
+        cell.isNotRetweetedConstraintLabels.active = FALSE;
+        cell.isRetweetedConstraintLabels.active = TRUE;
 
     }
     

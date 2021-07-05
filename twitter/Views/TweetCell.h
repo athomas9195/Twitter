@@ -24,6 +24,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIImageView *userRetweetedImage;
 @property (weak, nonatomic) IBOutlet UILabel *authorNameRetweetedLabel;
 @property (weak, nonatomic) IBOutlet UILabel *userRetweetedLabel;
+@property (weak, nonatomic) IBOutlet UIStackView *userRetweetedStackView;
+
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *isNotRetweetedConstraintLabels;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *isRetweetedConstraintLabels;
+
+
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *isRetweetedConstraint;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *isNotRetweetedConstraint;
+
+
 
 @property (nonatomic, strong) Tweet *tweet;  //stores the reference to the current tweet
 @property (weak, nonatomic) IBOutlet UILabel *replyLabel; //reply count (static)

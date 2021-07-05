@@ -48,26 +48,42 @@
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = UITableViewAutomaticDimension;
     
-    
-    
-    // Get timeline
-    [[APIManager shared] getHomeTimelineWithCompletion:^(NSArray *tweets, NSError *error) {
-        if (tweets) {
-            // inside your loadTweets() function
-            self.arrayOfTweets = tweets;
-            [self.tableView reloadData]; 
-            //NSLog(@"😎😎😎 Successfully loaded home timeline");
-         
-        } else {
-            //NSLog(@"😫😫😫 Error getting home timeline: %@", error.localizedDescription);
-        }
-    }];
-    
-    
-    
+    //get the data to display and store it in local variable
+    [self getData:@"timeline"];
+
+
 
 }
 
+
+//to make timelineviewcontroller generic so it can be reused
+- (void)getData:(NSString*)apiCallName {
+    
+    if([apiCallName isEqualToString:@"timeline"]) {
+        // Get timeline
+        [[APIManager shared] getHomeTimelineWithCompletion:^(NSArray *tweets, NSError *error) {
+
+            if (tweets) {
+                
+                NSMutableArray* tweetsMutableArray = [tweets mutableCopy];
+                self.arrayOfTweets = tweetsMutableArray;
+                [self.tableView reloadData];
+            
+            } else {
+                NSLog(@"😫😫😫 Error getting home timeline: %@", error.localizedDescription);
+            }
+        }];
+    
+    }
+     
+    //if([apiCallName isEqualToString:@"somethingOtherAPICall"])
+    //call corresponding api and return results as a mutable array
+    
+}
+
+
+    
+    
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 
@@ -80,9 +96,7 @@
 - (void)beginRefresh:(UIRefreshControl *)refreshControl {
 
     // Get timeline
-    [[APIManager shared] getHomeTimelineWithCompletion:^(NSArray *tweets, NSError *error) {
-       
-    }];
+    [[APIManager shared] getHomeTimelineWithCompletion:^(NSArray *tweets, NSError *error) {}];
  
     
     // Reload the tableView now that there is new data
@@ -103,10 +117,10 @@
 //enables custom cell displays
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     
-    
+    Tweet *tweet = self.arrayOfTweets[indexPath.row]; 
     TweetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetCell" forIndexPath:indexPath];
-    
-    Tweet *tweet = self.arrayOfTweets[indexPath.row];
+    cell.tweet = tweet;
+   
     
     cell.userImage.layer.cornerRadius = 20;
     cell.userImage.clipsToBounds = YES;
@@ -126,7 +140,23 @@
     cell.retweetLabel.text = [NSString stringWithFormat:@"%d", tweet.retweetCount ];
     cell.favoriteLabel.text = [NSString stringWithFormat:@"%d", tweet.favoriteCount];
  
-    cell.tweet = tweet;
+    
+    //is this tweet a retweet?
+
+    CGRect hiddenFrame = cell.userRetweetedView.frame;
+    hiddenFrame.size.height = 0;
+    cell.userRetweetedView.frame = hiddenFrame;
+    cell.userRetweetedView.hidden = YES;
+        
+    if(cell.tweet.retweetedByUser != nil) {
+    //        CGRect showFrame = self.userRetweetedView.frame;
+    //        showFrame.size.height = 24;
+    //        self.userRetweetedView.frame = showFrame;
+            
+        [cell.userRetweetedView setHidden:NO];
+        cell.authorNameRetweetedLabel.text = tweet.user.name;
+
+    }
     
 
  
